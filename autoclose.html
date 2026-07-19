@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BookSearch Autoclose</title>
+<title>BookSearch Redirect</title>
 </head>
 
 <body>
@@ -16,24 +16,22 @@ if(query){
 
     const q = encodeURIComponent(query);
 
-    window.open(
-        "https://www.goodreads.com/search?q=" + q,
-        "_blank"
-    );
+    // Turn this tab into Goodreads
+    window.location.href =
+        "https://www.goodreads.com/search?q=" + q;
 
+    // Open Mobilism
     window.open(
         "https://forum.mobilism.me/search.php?keywords=" + q +
         "&sr=topics&sf=titleonly",
         "_blank"
     );
 
+    // Open Anna's Archive
     window.open(
         "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
         "_blank"
     );
-
-    // Close the launcher tab
-    window.close();
 
 }
 
