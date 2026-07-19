@@ -119,6 +119,15 @@ document.getElementById("book").addEventListener("keydown", function(e){
     if(e.key === "Enter")
         searchBook();
 });
+    window.onload = function(){
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q");
+
+    if(query){
+        document.getElementById("book").value = query;
+        searchBook();
+    }
+};
 </script>
 
 </body>
