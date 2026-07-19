@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Search</title>
+
+<style>
+body{
+    margin:0;
+    background:#181818;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+#container{
+    width:500px;
+    max-width:90%;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    font-size:22px;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+    box-sizing:border-box;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 28px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#4d7cff;
+    color:white;
+}
+
+button:hover{
+    background:#6690ff;
+}
+</style>
+
+</head>
+<body>
+
+<div id="container">
+
+<h1>Book Search</h1>
+
+<input
+    id="book"
+    type="text"
+    placeholder="Book title..."
+    autofocus>
+
+<button onclick="searchBook()">Search</button>
+
+</div>
+
+<script>
+
+function searchBook(){
+
+    const title = document.getElementById("book").value.trim();
+
+    if(title==="")
+        return;
+
+    const q = encodeURIComponent(title);
+
+    // Goodreads
+    window.open(
+        "https://www.goodreads.com/search?q=" + q,
+        "_blank"
+    );
+
+    // Mobilism
+    window.open(
+        "https://forum.mobilism.me/search.php?keywords=" + q,
+        "_blank"
+    );
+
+    // Anna's Archive
+    window.open(
+        "https://annas-archive.org/search?q=" + q,
+        "_blank"
+    );
+}
+
+document.getElementById("book").addEventListener("keydown", function(e){
+
+    if(e.key==="Enter")
+        searchBook();
+
+});
+
+</script>
+
+</body>
+</html>
