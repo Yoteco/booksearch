@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BookSearch Autoclose</title>
+</head>
+
+<body>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const query = params.get("q");
+
+if(query){
+
+    const q = encodeURIComponent(query);
+
+    window.open(
+        "https://www.goodreads.com/search?q=" + q,
+        "_blank"
+    );
+
+    window.open(
+        "https://forum.mobilism.me/search.php?keywords=" + q +
+        "&sr=topics&sf=titleonly",
+        "_blank"
+    );
+
+    window.open(
+        "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
+        "_blank"
+    );
+
+    // Close the launcher tab
+    window.close();
+
+}
+
+</script>
+
+</body>
+</html>
