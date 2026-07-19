@@ -66,9 +66,35 @@ button:hover{
 button:active{
     transform:scale(0.98);
 }
+
+.footer{
+    margin-top:4vw;
+    font-size:1.3vw;
+    color:#F7E16F;
+}
+
+.footer a{
+    color:#F7E16F;
+}
+
+.copy-button{
+    background:none;
+    border:none;
+    width:auto;
+    padding:0;
+    margin:0;
+    font-size:1.3vw;
+    cursor:pointer;
+    color:#F7E16F;
+}
+
+.copy-button:hover{
+    filter:brightness(120%);
+}
 </style>
 
 </head>
+
 <body>
 
 <div id="container">
@@ -82,6 +108,16 @@ button:active{
         autofocus>
 
     <button onclick="searchBook()">Search</button>
+
+    <div class="footer">
+        Add 
+        <span id="search-url">https://yoteco.github.io/booksearch/?q=%s</span>
+        <button class="copy-button" onclick="copyURL()" title="Copy URL">
+            📋
+        </button>
+        to your 
+        <a href="about:settings#search">Firefox search engine</a>
+    </div>
 
 </div>
 
@@ -97,21 +133,18 @@ function searchBook(){
 
     const q = encodeURIComponent(title);
 
-
-    // Open Mobilism in a new tab
+    // Open Mobilism
     window.open(
         "https://forum.mobilism.me/search.php?keywords=" + q +
         "&sr=topics&sf=titleonly",
         "_blank"
     );
 
-
-    // Open Anna's Archive in a new tab
+    // Open Anna's Archive
     window.open(
         "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
         "_blank"
     );
-
 
     // Turn this tab into Goodreads
     window.location.href =
@@ -119,14 +152,14 @@ function searchBook(){
 }
 
 
-// Press Enter to search
+// Enter key search
 document.getElementById("book").addEventListener("keydown", function(e){
     if(e.key === "Enter")
         searchBook();
 });
 
 
-// Firefox keyword support: ?q=searchterm
+// Firefox keyword support
 window.onload = function(){
 
     const params = new URLSearchParams(window.location.search);
@@ -138,6 +171,16 @@ window.onload = function(){
     }
 
 };
+
+
+// Copy Firefox search URL
+function copyURL(){
+
+    const url = "https://yoteco.github.io/booksearch/?q=%s";
+
+    navigator.clipboard.writeText(url);
+
+}
 
 </script>
 
