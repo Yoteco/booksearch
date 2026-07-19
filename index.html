@@ -8,9 +8,9 @@
 <style>
 body{
     margin:0;
-    background:#181818;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
+    background:#EFFAED;
+    color:#F25E9D;
+    font-family:Papyrus, fantasy;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -18,37 +18,53 @@ body{
 }
 
 #container{
-    width:500px;
-    max-width:90%;
+    width:50vw;
     text-align:center;
 }
 
 h1{
-    margin-bottom:30px;
+    font-size:3vw;
+    margin-bottom:2vw;
 }
 
 input{
     width:100%;
-    font-size:22px;
-    padding:12px;
-    border-radius:8px;
-    border:none;
+    font-size:2vw;
+    padding:1vw;
+    border:2px solid #F25E9D;
+    border-radius:12px;
     box-sizing:border-box;
+    background:white;
+    color:#F25E9D;
+    font-family:inherit;
+    text-align:center;
+}
+
+input::placeholder{
+    color:#F25E9D;
+    opacity:0.6;
 }
 
 button{
-    margin-top:20px;
-    padding:12px 28px;
-    font-size:18px;
+    margin-top:2vw;
+    width:50%;
+    font-size:2vw;
+    padding:1vw;
     border:none;
-    border-radius:8px;
+    border-radius:12px;
     cursor:pointer;
-    background:#4d7cff;
+    background:#9679B3;
     color:white;
+    font-family:inherit;
+    transition:0.2s;
 }
 
 button:hover{
-    background:#6690ff;
+    filter:brightness(110%);
+}
+
+button:active{
+    transform:scale(0.98);
 }
 </style>
 
@@ -57,25 +73,24 @@ button:hover{
 
 <div id="container">
 
-<h1>Book Search</h1>
+    <h1>Book Search</h1>
 
-<input
-    id="book"
-    type="text"
-    placeholder="Book title..."
-    autofocus>
+    <input
+        id="book"
+        type="text"
+        placeholder="Enter a book title..."
+        autofocus>
 
-<button onclick="searchBook()">Search</button>
+    <button onclick="searchBook()">Search</button>
 
 </div>
 
 <script>
-
 function searchBook(){
 
     const title = document.getElementById("book").value.trim();
 
-    if(title==="")
+    if(title === "")
         return;
 
     const q = encodeURIComponent(title);
@@ -88,24 +103,22 @@ function searchBook(){
 
     // Mobilism
     window.open(
-        "https://forum.mobilism.me/search.php?keywords=" + q,
+        "https://forum.mobilism.me/search.php?keywords=" + q +
+        "&sr=topics&sf=titleonly",
         "_blank"
     );
 
     // Anna's Archive
     window.open(
-        "https://annas-archive.org/search?q=" + q,
+        "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
         "_blank"
     );
 }
 
 document.getElementById("book").addEventListener("keydown", function(e){
-
-    if(e.key==="Enter")
+    if(e.key === "Enter")
         searchBook();
-
 });
-
 </script>
 
 </body>
