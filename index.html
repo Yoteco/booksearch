@@ -85,7 +85,9 @@ button:active{
 
 </div>
 
+
 <script>
+
 function searchBook(){
 
     const title = document.getElementById("book").value.trim();
@@ -95,34 +97,38 @@ function searchBook(){
 
     const q = encodeURIComponent(title);
 
-    // Goodreads
-    window.open(
-        "https://www.goodreads.com/search?q=" + q,
-        "_blank"
-    );
 
-    // Mobilism
+    // Open Mobilism in a new tab
     window.open(
         "https://forum.mobilism.me/search.php?keywords=" + q +
         "&sr=topics&sf=titleonly",
         "_blank"
     );
 
-    // Anna's Archive
+
+    // Open Anna's Archive in a new tab
     window.open(
         "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
         "_blank"
     );
 
-// Close BookSearch tab
-window.close();
+
+    // Turn this tab into Goodreads
+    window.location.href =
+        "https://www.goodreads.com/search?q=" + q;
 }
-    
+
+
+// Press Enter to search
 document.getElementById("book").addEventListener("keydown", function(e){
     if(e.key === "Enter")
         searchBook();
 });
-    window.onload = function(){
+
+
+// Firefox keyword support: ?q=searchterm
+window.onload = function(){
+
     const params = new URLSearchParams(window.location.search);
     const query = params.get("q");
 
@@ -130,7 +136,9 @@ document.getElementById("book").addEventListener("keydown", function(e){
         document.getElementById("book").value = query;
         searchBook();
     }
+
 };
+
 </script>
 
 </body>
