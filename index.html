@@ -74,23 +74,20 @@ button:active{
 }
 
 .footer a{
-    color:#F7E16F;
+    color:#0000EE;
 }
 
-.copy-button{
-    background:none;
-    border:none;
-    width:auto;
-    padding:0;
-    margin:0;
-    font-size:1.3vw;
+.copy-link{
+    color:#0000EE;
+    text-decoration:underline;
     cursor:pointer;
-    color:#F7E16F;
 }
 
-.copy-button:hover{
-    filter:brightness(120%);
+.copy-icon{
+    font-family:Arial, sans-serif;
+    font-size:1.2em;
 }
+
 </style>
 
 </head>
@@ -111,12 +108,14 @@ button:active{
 
     <div class="footer">
         Add 
-        <span id="search-url">https://yoteco.github.io/booksearch/?q=%s</span>
-        <button class="copy-button" onclick="copyURL()" title="Copy URL">
-            📋
-        </button>
-        to your 
-        <a href="about:settings#search">Firefox search engine</a>
+        <span class="copy-link" onclick="copyURL()" title="Copy Firefox search URL">
+            https://yoteco.github.io/booksearch/?q=%s
+            <span class="copy-icon">⧉</span>
+        </span>
+        to your
+        <a href="about:settings#search" target="_blank">
+            Firefox search engine
+        </a>
     </div>
 
 </div>
