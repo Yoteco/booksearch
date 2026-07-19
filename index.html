@@ -34,7 +34,7 @@ input{
     border:2px solid #F25E9D;
     border-radius:12px;
     box-sizing:border-box;
-    background:FCF2C7;
+    background:#FCF2C7;
     color:#F25E9D;
     font-family:inherit;
     text-align:center;
@@ -113,10 +113,10 @@ function searchBook(){
         "https://annas-archive.gl/search?index=&page=1&sort=&ext=epub&display=&q=" + q,
         "_blank"
     );
-}
-    
+
 // Close BookSearch tab
 window.close();
+}
     
 document.getElementById("book").addEventListener("keydown", function(e){
     if(e.key === "Enter")
