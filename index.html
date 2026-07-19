@@ -24,6 +24,12 @@ body{
 
 h1{
     font-size:3vw;
+    margin-bottom:0.5vw;
+}
+
+.subtitle{
+    font-size:1.5vw;
+    color:#F7E16F;
     margin-bottom:2vw;
 }
 
@@ -108,6 +114,10 @@ button:active{
 
     <h1>BookSearch</h1>
 
+    <div class="subtitle">
+        searches mobilism, anna's archive, and goodreads
+    </div>
+
     <input
         id="book"
         type="text"
@@ -118,7 +128,7 @@ button:active{
 
     <div class="footer">
         Add 
-        <span class="copy-link" onclick="copyURL()" title="Copy firefox search url to clipboard">
+        <span class="copy-link" onclick="copyURL()" title="Copy firefox search url">
             https://yoteco.github.io/booksearch/?q=%s
             <span class="copy-icon">⧉</span>
         </span>
